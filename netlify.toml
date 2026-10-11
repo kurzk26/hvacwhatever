@@ -1,14 +1,21 @@
 [build]
+  command = "npm run build"
   publish = "."
 
-# /admin → /admin/index.html
 [[redirects]]
   from = "/admin"
   to = "/admin/index.html"
   status = 200
+  force = true
 
-# /admin/ → /admin/index.html
 [[redirects]]
   from = "/admin/"
   to = "/admin/index.html"
   status = 200
+  force = true
+
+[[headers]]
+  for = "/admin/config.yml"
+  [headers.values]
+    Content-Type = "text/yaml; charset=utf-8"
+    Cache-Control = "no-cache"

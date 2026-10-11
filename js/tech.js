@@ -1,11 +1,11 @@
 /* ============================================================
-   기술자료 게시판 (Google Sheets API)
+   기술자료 게시판 (Decap CMS + JSON)
    ============================================================ */
 (function(){
   'use strict';
 
-  /* ⬇⬇⬇ 여기에 웹앱 URL ⬇⬇⬇ */
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyzyRQ3Gmva-nqGGY8iTSLgOCwAV8bZO7QR8nf7iOLJVBYydBq725mm3EO-lemlXdbB/exec';
+  /* ⬇⬇⬇ tech-data.json 경로 ⬇⬇⬇ */
+  const DATA_URL = 'tech-data.json';
   /* ⬆⬆⬆ */
 
   const CATEGORY = document.body.dataset.techCategory || '';
@@ -23,21 +23,26 @@
     if(!url) return '';
     const m = String(url).match(/\/d\/([a-zA-Z0-9_-]+)/)
            || String(url).match(/[?&]id=([a-zA-Z0-9_-]+)/);
-    if(!m) return '';
+    if(!m) return url;
     return 'https://lh3.googleusercontent.com/d/' + m[1];
   }
 
-  /* ---------- 목록 로드 ---------- */
-  async function loadList(){
+  /* ---------- 데이터 로드 ---------- */
+  async function loadData(){
     try{
-      let url = APPS_SCRIPT_URL + '?action=list';
-      if(CATEGORY) url += '&category=' + encodeURIComponent(CATEGORY);
-
-      const res  = await fetch(url);
+      const res  = await fetch(DATA_URL);
       const json = await res.json();
-      if(!json.success) throw new Error(json.message);
 
-      allPosts = json.data || [];
+      let posts = json.posts || [];
+
+      // 카테고리 필터
+      if(CATEGORY){
+        posts = posts.filter(p =>
+          String(p.카테고리).trim() === String(CATEGORY).trim()
+        );
+      }
+
+      allPosts = posts;
       renderList(allPosts);
     }catch(err){
       listEl.innerHTML = '<div class="tech-empty">게시글을 불러오지 못했습니다.</div>';
@@ -81,68 +86,23 @@
     });
   }
 
-  /* ---------- 본문 렌더 (이미지 마커 + 텍스트) ---------- */
-  function renderContent(text){
-    if(!text) return '';
-
-    // 1) HTML escape
-    let safe = escapeHtml(String(text));
-
-    // 2) 이미지 마커 변환
-    //    [IMG:URL]         → 100% 크기 (기본)
-    //    [IMG-LARGE:URL]   → 100%
-    //    [IMG-MEDIUM:URL]  → 75%
-    //    [IMG-SMALL:URL]   → 50%
-    safe = safe.replace(
-      /\[IMG(-SMALL|-MEDIUM|-LARGE)?:([^\]]+)\]/g,
-      (match, size, url)=>{
-        const imgUrl = driveToImgUrl(url.trim());
-        if(!imgUrl) return '';
-
-        const sizeClass = size === '-SMALL'  ? 'small'
-                        : size === '-MEDIUM' ? 'medium'
-                        : size === '-LARGE'  ? 'large'
-                        : '';
-
-        return `<figure class="tech-detail-figure ${sizeClass}">
-                  <img src="${imgUrl}=w1200" alt="" loading="lazy">
-                </figure>`;
-      }
-    );
-
-    // 3) 줄바꿈
-    return safe.replace(/\n/g, '<br/>');
-  }
-
   /* ---------- 상세 로드 ---------- */
-  async function loadDetail(id){
-    try{
-      let url = APPS_SCRIPT_URL + '?action=detail&id=' + encodeURIComponent(id);
-      if(CATEGORY) url += '&category=' + encodeURIComponent(CATEGORY);
-
-      const res  = await fetch(url);
-      const json = await res.json();
-      if(!json.success || !json.data) throw new Error('글을 찾을 수 없습니다.');
-
-      const p = json.data;
-
-      document.getElementById('techDetailTitle').textContent  = p.제목 || '';
-      document.getElementById('techDetailAuthor').textContent = p.작성자 || '운영자';
-      document.getElementById('techDetailDate').textContent   = p.날짜 || '';
-
-      const contentHtml = renderContent(p.내용);
-    
-      document.getElementById('techDetailContent').innerHTML = contentHtml;
-
-      listView.style.display   = 'none';
-      detailView.style.display = 'block';
-      window.scrollTo({top:0, behavior:'smooth'});
-      history.replaceState(null, '', '#post-' + id);
-
-    }catch(err){
-      alert('자료를 불러오지 못했습니다.');
-      console.error(err);
+  function loadDetail(id){
+    const p = allPosts.find(x => String(x.id) === String(id));
+    if(!p){
+      alert('글을 찾을 수 없습니다.');
+      return;
     }
+
+    document.getElementById('techDetailTitle').textContent  = p.제목 || '';
+    document.getElementById('techDetailAuthor').textContent = p.작성자 || '운영자';
+    document.getElementById('techDetailDate').textContent   = p.날짜 || '';
+    document.getElementById('techDetailContent').innerHTML  = p.내용 || '';
+
+    listView.style.display   = 'none';
+    detailView.style.display = 'block';
+    window.scrollTo({top:0, behavior:'smooth'});
+    history.replaceState(null, '', '#post-' + id);
   }
 
   /* ---------- 뒤로 ---------- */
@@ -176,9 +136,17 @@
   }
 
   /* ---------- 초기 로드 ---------- */
-  loadList();
+  loadData();
 
+  /* URL에 #post-id 있으면 바로 상세 열기 */
   const m = location.hash.match(/^#post-(.+)$/);
-  if(m) loadDetail(m[1]);
+  if(m){
+    const check = setInterval(()=>{
+      if(allPosts.length){
+        clearInterval(check);
+        loadDetail(m[1]);
+      }
+    }, 100);
+  }
 
 })();
