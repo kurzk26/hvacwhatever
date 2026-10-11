@@ -1,0 +1,43 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# 미디어(이미지) 저장 위치
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+# 사이트 설정
+site_url: https://hvacwhatever.netlify.app
+display_url: https://hvacwhatever.netlify.app
+logo_url: https://hvacwhatever.netlify.app/images/engineer.png
+
+# 한글 설정
+locale: 'ko'
+
+# 게시글 컬렉션
+collections:
+  - name: "tech"
+    label: "기술자료"
+    label_singular: "기술자료 글"
+    folder: "content/tech"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "tech-news.html"
+    fields:
+      - label: "카테고리"
+        name: "category"
+        widget: "select"
+        options:
+          - "신제품 · 업데이트 소식"
+          - "냉매배관"
+          - "드레인배관"
+          - "보온·결로"
+          - "전기·통신"
+          - "시공·시운전"
+          - "고장진단"
+          - "HVAC 해외 소식"
+      - { label: "제목", name: "title", widget: "string" }
+      - { label: "작성자", name: "author", widget: "string", default: "운영자" }
+      - { label: "날짜", name: "date", widget: "datetime" }
+      - { label: "커버 이미지", name: "cover", widget: "image", required: false }
+      - { label: "본문", name: "body", widget: "markdown" }
