@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="시스템에어컨 신제품 출시 및 펌웨어·기능 업데이트 소식을 정리합니다.">
+<title>신제품 · 업데이트 소식 | 기술자료 | 에어컨 무엇이든지 물어보세요</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="data" data-tech-category="신제품·업데이트 소식">
+
+<main>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="crumb">
+      <a href="index.html">홈</a> ·
+      <a href="data.html">기술자료</a> ·
+      신제품·업데이트 소식
+    </div>
+    <div class="eyebrow">TECHNICAL DATA · 01</div>
+    <h1>신제품·업데이트 소식</h1>
+    <p>시스템에어컨 신제품 출시와 펌웨어·기능 업데이트 소식을 정리합니다.</p>
+  </div>
+</section>
+
+
+<section class="tech-board">
+  <div class="container">
+
+    <!-- 목록 뷰 -->
+    <div id="techListView">
+
+     <!-- 헤더 -->
+<div class="tech-board-head">
+  <h2>자료 목록</h2>
+  <div class="tech-head-right">
+    <div class="tech-board-search">
+      <input type="search" id="techSearch" placeholder="제목 검색...">
+    </div>
+    <a href="data.html" class="tech-hub-link">
+      카테고리 목록
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2.2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </a>
+  </div>
+</div>
+
+      <div id="techList" class="tech-board-list">
+        <div class="tech-empty">불러오는 중...</div>
+      </div>
+    </div>
+
+    <!-- 상세 뷰 -->
+    <div id="techDetailView" style="display:none;">
+
+      <!-- 뒤로가기 2개 -->
+      <div class="tech-back-row">
+        <button class="tech-back" id="techBack">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          목록으로
+        </button>
+        <a href="data.html" class="tech-back-hub">
+          카테고리 목록
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <article class="tech-article">
+        <h2 id="techDetailTitle"></h2>
+        <div class="tech-article-meta">
+          <span id="techDetailAuthor"></span>
+          <span id="techDetailDate"></span>
+        </div>
+        <div class="tech-article-content" id="techDetailContent"></div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<script src="js/layout.js"></script>
+<script src="js/common.js"></script>
+<script src="js/tech.js"></script>
+</body>
+</html>
