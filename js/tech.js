@@ -60,8 +60,8 @@
     listEl.innerHTML = posts.map(p=>{
       const thumbUrl = p.이미지 ? driveToImgUrl(p.이미지) : '';
       const thumb = thumbUrl
-        ? `<div class="tech-item-thumb"><img src="${thumbUrl}=w200" alt="" loading="lazy"></div>`
-        : '';
+       ? `<div class="tech-item-thumb"><img src="${thumbUrl}" alt="" loading="lazy"></div>`
+       : '';
 
       return `
         <a class="tech-list-item ${thumbUrl ? 'has-thumb' : ''}"
