@@ -2290,3 +2290,110 @@ footer{
   header nav{top:66px}
   header nav::after{top:66px}
 }
+
+/* ============================================================
+   TOOLS — 기술 도구 카드 그리드
+   ============================================================ */
+.tool-section{
+  padding:70px 0 100px;
+  background:#f7f9fb;
+}
+.tool-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:20px;
+}
+.tool-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  padding:30px 28px 28px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  text-decoration:none;
+  color:inherit;
+  transition:all .25s cubic-bezier(.2,.7,.3,1);
+  overflow:hidden;
+}
+.tool-card::before{
+  content:"";
+  position:absolute;
+  left:0;top:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg, var(--blue), #4a8bc9);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .4s;
+}
+.tool-card:hover{
+  transform:translateY(-6px);
+  border-color:transparent;
+  box-shadow:0 30px 60px -25px rgba(16,36,62,.35);
+}
+.tool-card:hover::before{
+  transform:scaleX(1);
+}
+
+.tool-num{
+  font-family:'Inter', sans-serif;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.15em;
+  color:var(--blue);
+  margin-bottom:12px;
+}
+.tool-icon{
+  font-size:32px;
+  margin-bottom:16px;
+  line-height:1;
+}
+.tool-card h3{
+  font-size:16.5px;
+  font-weight:800;
+  letter-spacing:-.4px;
+  color:var(--navy);
+  line-height:1.35;
+  margin:0 0 8px;
+}
+.tool-version{
+  display:inline-block;
+  font-family:'Inter', sans-serif;
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:.05em;
+  color:var(--blue);
+  background:rgba(47,111,174,.08);
+  padding:3px 8px;
+  border-radius:6px;
+  margin-bottom:12px;
+  align-self:flex-start;
+}
+.tool-card p{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.6;
+  margin:0 0 18px;
+  flex:1;
+}
+.tool-go{
+  font-size:12px;
+  font-weight:900;
+  color:var(--blue);
+  letter-spacing:-.2px;
+  transition:transform .2s;
+}
+.tool-card:hover .tool-go{
+  transform:translateX(4px);
+}
+
+/* 반응형 */
+@media(max-width:900px){
+  .tool-grid{grid-template-columns:repeat(2, 1fr);}
+}
+@media(max-width:620px){
+  .tool-section{padding:50px 0 70px;}
+  .tool-grid{grid-template-columns:1fr;gap:14px;}
+  .tool-card{padding:24px 22px;}
+  .tool-card h3{font-size:15.5px;}
+}

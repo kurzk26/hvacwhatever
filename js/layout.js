@@ -5,7 +5,7 @@
     { id:'about',      href:'about.html',      label:'ABOUT' },
     { id:'consumer',   href:'consumer.html',   label:'소비자 정보' },
     { id:'data',       href:'data.html',       label:'기술자료' },
-    { id:'calculator', href:'calculator.html', label:'계산기' },
+    { id:'calculator', href:'calculator.html', label:'기술도구' },
     { id:'magazine',   href:'magazine.html',   label:'기술 매거진' },
     { id:'book',       href:'book.html',       label:'최신서적' },
     { id:'related',    href:'related.html',    label:'관련 링크' },
@@ -39,7 +39,7 @@
         <a href="about.html">ABOUT</a>
         <a href="consumer.html">소비자 정보</a>
         <a href="data.html">기술자료</a>
-        <a href="calculator.html">계산기</a>
+        <a href="calculator.html">기술도구</a>
         <a href="magazine.html">기술 매거진</a>
         <a href="book.html">최신서적</a>
         <a href="related.html">관련 링크</a>

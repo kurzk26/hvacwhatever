@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="배관 결로 진단·보온재 산정, 드레인배관, 결로 위험 등 현장 실무형 계산기">
-<title>계산기 | 에어컨 무엇이든지 물어보세요</title>
+<meta name="description" content="시스템에어컨 현장에서 바로 쓰는 실무 엔지니어링 도구">
+<title>기술 도구 | 에어컨 무엇이든지 물어보세요</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body data-page="calculator">
@@ -13,41 +13,84 @@
 
 <section class="page-hero">
   <div class="container">
-    <div class="crumb"><a href="index.html">홈</a> · 계산기</div>
-    <div class="eyebrow">FIELD TOOLS</div>
-    <h1>현장 기술 계산기</h1>
-    <p>현장에서 바로 사용할 수 있는 실무형 계산 도구</p>
+    <div class="crumb"><a href="index.html">홈</a> · 기술 도구</div>
+    <div class="eyebrow">ENGINEERING TOOLS</div>
+    <h1>기술 도구</h1>
+    <p>시스템에어컨 현장에서 바로 쓰는 실무 엔지니어링 도구</p>
   </div>
 </section>
 
-<section style="background:var(--bg)">
+<section class="tool-section">
   <div class="container">
-    <div class="cards">
+    <div class="tool-grid">
 
-      <article class="card">
-        <div class="icon">01</div>
-        <h3>결로 위험도 계산기</h3>
-        <p>실내 온·습도와 배관/벽면/창문 표면온도를 기준으로 결로 발생 가능성과 관리 기준을 계산합니다.</p>
-        <a class="go" href="#" data-calc="condensation">계산기 열기 →</a>
-      </article>
+      <a class="tool-card" href="#" data-calc="indoorCondensation">
+        <div class="tool-num">01</div>
+        <div class="tool-icon">💧</div>
+        <h3>실내 결로 위험도 계산기</h3>
+        <span class="tool-version">v2.3</span>
+        <p>실내 표면 결로 위험 진단</p>
+        <span class="tool-go">도구 열기 →</span>
+      </a>
 
-      <article class="card">
-        <div class="icon">02</div>
+      <a class="tool-card" href="#" data-calc="pipeCondensation">
+        <div class="tool-num">02</div>
+        <div class="tool-icon">🧊</div>
         <h3>냉매배관 결로 진단 및 보온재 산정기</h3>
-        <p>실내 온·습도와 적용된 보온재 및 현장환경 기준으로 결로 가능성과 보온재 두께를 검토합니다.</p>
-        <a class="go" href="#" data-calc="refrigerant">계산기 열기 →</a>
-      </article>
+        <span class="tool-version">v1.4.1</span>
+        <p>배관 결로 진단 + 보온재 두께 산정</p>
+        <span class="tool-go">도구 열기 →</span>
+      </a>
 
-      <article class="card">
-        <div class="icon">03</div>
-        <h3>드레인배관 계산기</h3>
-        <p>배관 길이와 구배, 유량 등 현장 조건을 기준으로 드레인 배관 사양을 검토합니다.</p>
-        <a class="go" href="#" data-calc="drain">계산기 열기 →</a>
-      </article>
+      <a class="tool-card" href="#" data-calc="unitConverter">
+        <div class="tool-num">03</div>
+        <div class="tool-icon">🔄</div>
+        <h3>냉동공조 단위변환기 Pro</h3>
+        <span class="tool-version">v20.1</span>
+        <p>냉동공조 단위 변환 (kW/RT, ℃/℉ 등)</p>
+        <span class="tool-go">도구 열기 →</span>
+      </a>
+
+      <a class="tool-card" href="#" data-calc="phDiagram">
+        <div class="tool-num">04</div>
+        <div class="tool-icon">📊</div>
+        <h3>p-h선도 냉동사이클 시뮬레이터</h3>
+        <span class="tool-version">v4.5.0</span>
+        <p>압력-엔탈피 냉동사이클 시뮬레이션</p>
+        <span class="tool-go">도구 열기 →</span>
+      </a>
+
+      <a class="tool-card" href="#" data-calc="hsDiagram">
+        <div class="tool-num">05</div>
+        <div class="tool-icon">📈</div>
+        <h3>h-s선도 냉동사이클 시뮬레이터</h3>
+        <span class="tool-version">v1.8.1</span>
+        <p>엔탈피-엔트로피 사이클 시뮬레이션</p>
+        <span class="tool-go">도구 열기 →</span>
+      </a>
+
+      <a class="tool-card" href="#" data-calc="combinedCycle">
+        <div class="tool-num">06</div>
+        <div class="tool-icon">🎛️</div>
+        <h3>p-h, h-s 통합 냉동사이클 시뮬레이터</h3>
+        <span class="tool-version">v5.6.2</span>
+        <p>p-h + h-s 통합 시뮬레이터</p>
+        <span class="tool-go">도구 열기 →</span>
+      </a>
+
+      <a class="tool-card" href="#" data-calc="drainSelector">
+        <div class="tool-num">07</div>
+        <div class="tool-icon">🔧</div>
+        <h3>시스템에어컨 드레인배관 자동 선정 계산기</h3>
+        <span class="tool-version">v16.2</span>
+        <p>드레인배관 자동 선정</p>
+        <span class="tool-go">도구 열기 →</span>
+      </a>
 
     </div>
   </div>
 </section>
+
 </main>
 
 <script src="js/config.js"></script>
