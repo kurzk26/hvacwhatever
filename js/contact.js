@@ -73,7 +73,7 @@
               <button type="button" data-type="사업 문의" class="active">사업 문의</button>
               <button type="button" data-type="기술 문의">기술 문의</button>
               <button type="button" data-type="서비스 문의">서비스 문의</button>
-              <button type="button" data-type="협력업체 문의">협력업체 문의</button>
+              <button type="button" data-type="추천업체 문의">추천업체 문의</button>
             </div>
             <input type="hidden" name="type" id="typeField" value="사업 문의" />
 
@@ -106,7 +106,7 @@
                 <option>유지관리·A/S</option>
                 <option>기술 콘텐츠·앱</option>
                 <option>매거진·도서출판</option>
-                <option>협력업체 문의</option>
+                <option>추천업체 문의</option>
                 <option>기타</option>
               </select>
             </div>

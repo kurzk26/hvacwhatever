@@ -2397,3 +2397,216 @@ footer{
   .tool-card{padding:24px 22px;}
   .tool-card h3{font-size:15.5px;}
 }
+
+/* ============================================================
+   EXTERNAL LINK — 외부 링크 확인 모달
+   ============================================================ */
+.external-modal{
+  position:fixed;inset:0;z-index:9999;
+  display:none;align-items:center;justify-content:center;
+  padding:20px;
+}
+.external-modal.open{display:flex}
+
+.external-modal-backdrop{
+  position:absolute;inset:0;
+  background:rgba(16,36,62,.55);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+
+.external-modal-panel{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:440px;
+  background:#fff;
+  border-radius:20px;
+  padding:34px 30px 26px;
+  text-align:center;
+  box-shadow:0 40px 80px -20px rgba(16,36,62,.4);
+  animation:extModalIn .3s cubic-bezier(.2,.9,.3,1.2);
+}
+@keyframes extModalIn{
+  from{opacity:0;transform:translateY(20px) scale(.96);}
+  to{opacity:1;transform:translateY(0) scale(1);}
+}
+
+.external-modal-icon{
+  font-size:44px;
+  line-height:1;
+  margin-bottom:14px;
+}
+
+.external-modal-panel h2{
+  font-size:19px;
+  font-weight:800;
+  letter-spacing:-.5px;
+  color:var(--navy);
+  margin:0 0 14px;
+}
+
+.external-modal-msg{
+  font-size:13.5px;
+  line-height:1.7;
+  color:var(--muted);
+  margin:0 0 18px;
+}
+.external-modal-msg strong{
+  color:var(--navy);
+  font-weight:700;
+}
+
+.external-modal-url{
+  font-family:'Inter','Noto Sans KR',sans-serif;
+  font-size:11.5px;
+  color:#7b8793;
+  background:#f7f9fb;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:9px 12px;
+  margin-bottom:22px;
+  word-break:break-all;
+  line-height:1.5;
+  max-height:70px;
+  overflow-y:auto;
+}
+
+.external-modal-actions{
+  display:flex;
+  gap:10px;
+  margin-bottom:16px;
+}
+.external-btn{
+  flex:1;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  padding:13px 20px;
+  border-radius:10px;
+  font-size:14px;
+  font-weight:800;
+  font-family:inherit;
+  border:0;
+  cursor:pointer;
+  transition:.2s;
+  letter-spacing:-.2px;
+}
+.external-btn.ghost{
+  background:#fff;
+  border:1px solid var(--line);
+  color:var(--navy);
+}
+.external-btn.ghost:hover{
+  border-color:var(--navy);
+  background:#f7f9fb;
+}
+.external-btn.primary{
+  background:var(--navy);
+  color:#fff;
+}
+.external-btn.primary:hover{
+  background:var(--blue);
+  transform:translateY(-1px);
+  box-shadow:0 12px 24px -10px rgba(47,111,174,.5);
+}
+
+.external-modal-check{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  color:var(--muted);
+  cursor:pointer;
+  user-select:none;
+}
+.external-modal-check input{
+  width:14px;
+  height:14px;
+  accent-color:var(--blue);
+  cursor:pointer;
+}
+
+@media(max-width:620px){
+  .external-modal-panel{
+    padding:28px 22px 22px;
+    border-radius:16px;
+  }
+  .external-modal-icon{font-size:36px;}
+  .external-modal-panel h2{font-size:17px;}
+  .external-modal-msg{font-size:12.5px;}
+  .external-modal-actions{
+    flex-direction:column-reverse;
+  }
+  .external-btn{padding:12px 18px;font-size:13.5px;}
+}
+
+/* ============================================================
+   LEGAL NOTICE — 법적 고지 및 책임 한계
+   ============================================================ */
+.legal-notice{
+  background:#f7f9fb;
+  border-top:1px solid var(--line);
+  padding:50px 0 70px;
+}
+.legal-notice-box{
+  display:flex;
+  gap:22px;
+  align-items:flex-start;
+  padding:28px 32px;
+  background:#fff;
+  border:1px solid #e6ecf3;
+  border-left:4px solid #7b8793;
+  border-radius:14px;
+  max-width:900px;
+  margin:0 auto;
+}
+.legal-notice-icon{
+  font-size:26px;
+  flex-shrink:0;
+  line-height:1;
+  margin-top:2px;
+}
+.legal-notice-content h3{
+  font-size:15px;
+  font-weight:800;
+  color:var(--navy);
+  letter-spacing:-.3px;
+  margin:0 0 14px;
+}
+.legal-notice-content p{
+  font-size:13.5px;
+  color:var(--muted);
+  line-height:1.8;
+  margin:0 0 12px;
+}
+.legal-notice-content p:last-child{
+  margin-bottom:0;
+}
+.legal-notice-content strong{
+  color:var(--navy);
+  font-weight:700;
+}
+
+/* 반응형 */
+@media(max-width:620px){
+  .legal-notice{
+    padding:36px 0 50px;
+  }
+  .legal-notice-box{
+    flex-direction:column;
+    gap:12px;
+    padding:22px 22px;
+  }
+  .legal-notice-icon{
+    font-size:22px;
+  }
+  .legal-notice-content h3{
+    font-size:14px;
+  }
+  .legal-notice-content p{
+    font-size:12.5px;
+    line-height:1.75;
+  }
+}
