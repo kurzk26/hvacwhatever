@@ -1,11 +1,12 @@
 {
-  "name": "havcwhatever",
+  "name": "hvacwhatever-airplan-tistory",
   "version": "1.0.0",
-  "description": "",
+  "description": "airplan.at 기존 8개 기술자료 게시판 + 티스토리 RSS 연동",
   "main": "index.js",
-"scripts": {
-  "build": "node scripts/build-content.js"
-},
+  "scripts": {
+    "build": "node scripts/build-content.js",
+    "test": "node --test tests/*.test.mjs"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kurzk26/hvacwhatever.git"
@@ -20,6 +21,12 @@
   "homepage": "https://github.com/kurzk26/hvacwhatever#readme",
   "dependencies": {
     "gray-matter": "^4.0.3",
-    "marked": "^18.1.0"
+    "marked": "^18.1.0",
+    "cheerio": "^1.0.0",
+    "fast-xml-parser": "^5.0.0",
+    "sanitize-html": "^2.13.0"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

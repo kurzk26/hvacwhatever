@@ -19,3 +19,8 @@
   [headers.values]
     Content-Type = "text/yaml; charset=utf-8"
     Cache-Control = "no-cache"
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+[build.environment]
+  NODE_VERSION = "22"

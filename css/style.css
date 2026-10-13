@@ -2610,3 +2610,12 @@ footer{
     line-height:1.75;
   }
 }
+/* ===== TISTORY RSS BOARD — 카테고리 연동 추가 ===== */
+.tech-tistory-status{margin:0 0 12px;color:#708293;font-size:12.5px}
+.tech-tistory-excerpt{color:#596c80;font-size:13px;line-height:1.55;margin:0 0 12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tech-tistory-source{margin:22px 0 0;color:#708293;font-size:13px;text-align:right}
+.tech-tistory-original{color:#267caf;text-decoration:underline;text-underline-offset:3px}
+.tech-tistory-more,.tech-tistory-retry{display:block;margin:22px auto 4px;border:1px solid #c5d3df;background:#fff;color:#183b56;border-radius:10px;padding:11px 22px;font-size:13px;font-family:inherit;font-weight:700;cursor:pointer}
+.tech-tistory-more:hover,.tech-tistory-retry:hover{background:#eaf2fa}
+.tech-tistory-more[hidden],.tech-tistory-retry[hidden]{display:none}
+@media(max-width:620px){.tech-tistory-excerpt{font-size:12px}.tech-tistory-source{text-align:left}}
