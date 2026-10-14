@@ -35,13 +35,6 @@
     }).format(new Date(raw));
   };
 
-  const source = make('p', 'tech-tistory-source');
-  const original = make('a', 'tech-tistory-original', '티스토리 공식 기술 블로그 ↗');
-  original.href = 'https://hvacwhatever.tistory.com/category/01%20TECH%20%E2%80%94%20%EA%B8%B0%EC%88%A0%20%EC%9E%90%EB%A3%8C';
-  original.target = '_blank';
-  original.rel = 'noopener noreferrer';
-  source.append('게시글 출처: ', original);
-  list.after(source);
 
   const more = make('button', 'tech-tistory-more', '더 보기');
   more.type = 'button';

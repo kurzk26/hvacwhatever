@@ -25,7 +25,7 @@ function articleDoc(post, board) {
   .logo{font-weight:850;text-decoration:none;color:#142d47}.logo b{color:#2486bc}.header nav{display:flex;gap:20px;font-size:13px}
   main{max-width:900px;margin:40px auto 90px;padding:0 20px}.back{font-size:13px;text-decoration:none;font-weight:750}article{background:white;border:1px solid #dce5ed;border-radius:16px;padding:clamp(24px,5vw,62px);margin-top:18px}
   .kicker{color:#2783b7;font-size:12px;letter-spacing:1px;font-weight:800}h1{font-size:clamp(26px,4vw,39px);color:#142d47;line-height:1.4;letter-spacing:-1.1px;margin:12px 0 16px}
-  .date{color:#758698;font-size:13px}.source{background:#eef7fc;border-left:3px solid #2783b7;margin:30px 0;padding:17px 20px;font-size:14px}
+  .date{color:#758698;font-size:13px}
   .content{font-size:16px;overflow-wrap:anywhere}.content img{max-width:100%;height:auto;border-radius:8px}.content table{display:block;max-width:100%;overflow:auto;border-collapse:collapse}.content td,.content th{border:1px solid #dde7ed;padding:10px}
   .content h2,.content h3{color:#142d47;line-height:1.5}.content h2{margin-top:44px;padding-bottom:12px;border-bottom:1px solid #e2eaf0}.content pre{white-space:pre;overflow-x:auto;background:#f2f6f9;padding:16px}.content blockquote{border-left:3px solid #2783b7;margin:20px 0;padding:12px 20px;background:#f4f8fc}
   .notice{background:#fffbeb;border:1px solid #eedaa2;padding:14px;border-radius:8px;font-size:13px}.foot{border-top:1px solid #e2eaf0;margin-top:35px;padding-top:20px;color:#718293;font-size:13px}
@@ -34,7 +34,6 @@ function articleDoc(post, board) {
   <header class="header"><a class="logo" href="/">HVAC <b>WHATEVER.</b></a><nav><a href="/data">기술자료</a><a href="${def.route}">${escapeHtml(def.label)}</a></nav></header>
   <main><a class="back" href="${def.route}">← ${escapeHtml(def.label)} 게시판으로</a>
   <article><div class="kicker">TECHNICAL DATA · ${def.number}</div><h1>${escapeHtml(post.title)}</h1>${date ? `<div class="date">${escapeHtml(date)}</div>` : ''}
-  <aside class="source">원문 출처: <strong>에어컨 무엇이든지 물어보세요 티스토리</strong><br><a href="${escapeHtml(post.originalUrl)}" target="_blank" rel="noopener noreferrer">티스토리 원문 보기 ↗</a></aside>
   ${post.complete ? '' : '<p class="notice">원문 전체를 가져오지 못했을 수 있습니다. 누락된 내용은 티스토리 원문에서 확인하세요.</p>'}
   <div class="content">${post.html || '<p>본문을 불러오지 못했습니다. 원문 링크를 이용해 주세요.</p>'}</div><div class="foot">© 에어컨 무엇이든지 물어보세요 · HVAC WHATEVER</div>
   </article></main></body></html>`;
